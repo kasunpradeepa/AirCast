@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-cloud-sun"></i>
+                <span>WeatherApp</span>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="user-profile">
+                <div class="profile-pic">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <h3>John Doe</h3>
+                    <p>john.doe@weather.com</p>
+                </div>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#" onclick="showPage('home')" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" onclick="showPage('forecast')"><i class="fas fa-calendar-days"></i> 5-Day Forecast</a></li>
+                <li><a href="#" onclick="showPage('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#" onclick="showPage('about')"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+                    <span class="slider">
+                        <i class="fas fa-sun sun-icon"></i>
+                        <i class="fas fa-moon moon-icon"></i>
+                    </span>
+                </label>
+                <span>Dark Mode</span>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <main class="main-content">
+            
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <div class="page-header">
+                    <h1>Good <span id="timeOfDay">Morning</span>!</h1>
+                    <p>Here's today's weather</p>
+                </div>
+
+                <!-- Current Weather Card -->
+                <div class="weather-card main-weather">
+                    <div class="weather-header">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York, NY</span>
+                        </div>
+                        <div class="weather-icon">☀️</div>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span class="temp-value">22</span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-desc">
+                            <h3>Sunny</h3>
+                            <p>Clear sky with sunshine</p>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-droplet"></i>
+                            <div>
+                                <span class="value">65%</span>
+                                <span class="label">Humidity</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <span class="value">8.5 km/h</span>
+                                <span class="label">Wind</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-gauge"></i>
+                            <div>
+                                <span class="value">1013 hPa</span>
+                                <span class="label">Pressure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-cards">
+                        <div class="action-card" onclick="showPage('forecast')">
+                            <i class="fas fa-calendar-week"></i>
+                            <h3>5-Day Forecast</h3>
+                            <p>View detailed forecast</p>
+                        </div>
+                        <div class="action-card" onclick="showComingSoon()">
+                            <i class="fas fa-map"></i>
+                            <h3>Weather Map</h3>
+                            <p>Interactive radar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Highlights -->
+                <div class="highlights">
+                    <h2>Today's Highlights</h2>
+                    <div class="highlight-cards">
+                        <div class="highlight-card">
+                            <div class="highlight-header">
+                                <i class="fas fa-eye"></i>
+                                <span>Visibility</span>
+                            </div>
+                            <div class="highlight-value">10 km</div>
+                            <div class="highlight-desc">Clear view</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-header">
+                                <i class="fas fa-sun"></i>
+                                <span>UV Index</span>
+                            </div>
+                            <div class="highlight-value">5</div>
+                            <div class="highlight-desc">Moderate</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-header">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Feels Like</span>
+                            </div>
+                            <div class="highlight-value">25°C</div>
+                            <div class="highlight-desc">Similar to actual</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-header">
+                                <i class="fas fa-clock"></i>
+                                <span>Sunrise</span>
+                            </div>
+                            <div class="highlight-value">6:42 AM</div>
+                            <div class="highlight-desc">Sunset 7:18 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast Page -->
+            <div id="forecast" class="page">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h1>5-Day Forecast</h1>
+                        <p>Plan your week ahead</p>
+                    </div>
+                </div>
+
+                <div class="forecast-cards">
+                    <div class="forecast-card">
+                        <div class="forecast-day">
+                            <h3>Today</h3>
+                            <p>Dec 20</p>
+                        </div>
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-temp">
+                            <span class="high">24°</span>
+                            <span class="low">18°</span>
+                        </div>
+                        <div class="forecast-desc">Sunny</div>
+                    </div>
+
+                    <div class="forecast-card">
+                        <div class="forecast-day">
+                            <h3>Tomorrow</h3>
+                            <p>Dec 21</p>
+                        </div>
+                        <div class="forecast-icon">⛅</div>
+                        <div class="forecast-temp">
+                            <span class="high">20°</span>
+                            <span class="low">15°</span>
+                        </div>
+                        <div class="forecast-desc">Partly Cloudy</div>
+                    </div>
+
+                    <div class="forecast-card">
+                        <div class="forecast-day">
+                            <h3>Friday</h3>
+                            <p>Dec 22</p>
+                        </div>
+                        <div class="forecast-icon">🌧️</div>
+                        <div class="forecast-temp">
+                            <span class="high">16°</span>
+                            <span class="low">12°</span>
+                        </div>
+                        <div class="forecast-desc">Light Rain</div>
+                    </div>
+
+                    <div class="forecast-card">
+                        <div class="forecast-day">
+                            <h3>Saturday</h3>
+                            <p>Dec 23</p>
+                        </div>
+                        <div class="forecast-icon">⛅</div>
+                        <div class="forecast-temp">
+                            <span class="high">21°</span>
+                            <span class="low">16°</span>
+                        </div>
+                        <div class="forecast-desc">Cloudy</div>
+                    </div>
+
+                    <div class="forecast-card">
+                        <div class="forecast-day">
+                            <h3>Sunday</h3>
+                            <p>Dec 24</p>
+                        </div>
+                        <div class="forecast-icon">🌞</div>
+                        <div class="forecast-temp">
+                            <span class="high">26°</span>
+                            <span class="low">20°</span>
+                        </div>
+                        <div class="forecast-desc">Hot & Sunny</div>
+                    </div>
+                </div>
+
+                <!-- Week Summary -->
+                <div class="week-summary">
+                    <h2>Week Summary</h2>
+                    <div class="summary-card">
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <div>
+                                    <span class="stat-value">21°C</span>
+                                    <span class="stat-label">Average</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-arrow-up"></i>
+                                <div>
+                                    <span class="stat-value">26°C</span>
+                                    <span class="stat-label">Highest</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-arrow-down"></i>
+                                <div>
+                                    <span class="stat-value">12°C</span>
+                                    <span class="stat-label">Lowest</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="summary-info">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Weather data is updated every hour. Pull down to refresh for the latest forecast.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="settings" class="page">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h1>Settings</h1>
+                        <p>Customize your experience</p>
+                    </div>
+                </div>
+
+                <div class="settings-sections">
+                    <div class="settings-section">
+                        <h3><i class="fas fa-palette"></i> Appearance</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span>Dark Mode</span>
+                                <p>Switch between light and dark theme</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="darkModeToggle" onchange="toggleTheme()">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span>Weather Alerts</span>
+                                <p>Get notified about severe weather</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span>Use Current Location</span>
+                                <p>Automatically detect your location</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3><i class="fas fa-ruler"></i> Units</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span>Temperature Unit</span>
+                            </div>
+                            <select class="setting-select">
+                                <option value="celsius">Celsius (°C)</option>
+                                <option value="fahrenheit">Fahrenheit (°F)</option>
+                                <option value="kelvin">Kelvin (K)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3><i class="fas fa-language"></i> Language</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span>App Language</span>
+                            </div>
+                            <select class="setting-select">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                                <option value="ja">Japanese</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3><i class="fas fa-database"></i> Data</h3>
+                        <div class="setting-item action-item" onclick="showAlert('Cache cleared successfully!')">
+                            <i class="fas fa-trash"></i>
+                            <div class="setting-info">
+                                <span>Clear Cache</span>
+                                <p>Free up storage space</p>
+                            </div>
+                        </div>
+                        <div class="setting-item action-item" onclick="showAlert('Data exported successfully!')">
+                            <i class="fas fa-download"></i>
+                            <div class="setting-info">
+                                <span>Export Data</span>
+                                <p>Export your weather preferences</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div id="about" class="page">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h1>About</h1>
+                        <p>Learn more about the app</p>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <!-- App Logo -->
+                    <div class="app-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h2>Weather App</h2>
+                        <p>Version 1.0.0</p>
+                    </div>
+
+                    <!-- App Description -->
+                    <div class="about-section">
+                        <h3><i class="fas fa-info-circle"></i> About This App</h3>
+                        <p>Weather App provides accurate and up-to-date weather information with a beautiful, intuitive interface. Stay informed about current conditions, forecasts, and weather alerts.</p>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="about-section">
+                        <h3><i class="fas fa-star"></i> Features</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <i class="fas fa-sun"></i>
+                                <div>
+                                    <h4>Current Weather</h4>
+                                    <p>Real-time weather conditions for your location</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-days"></i>
+                                <div>
+                                    <h4>5-Day Forecast</h4>
+                                    <p>Extended weather forecast to plan ahead</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-moon"></i>
+                                <div>
+                                    <h4>Dark & Light Mode</h4>
+                                    <p>Choose your preferred app appearance</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <h4>Responsive Design</h4>
+                                    <p>Perfect experience on all devices</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Developer -->
+                    <div class="about-section">
+                        <h3><i class="fas fa-code"></i> Developer</h3>
+                        <div class="developer-info">
+                            <div class="developer-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="developer-details">
+                                <h4>Web Developer</h4>
+                                <p>Frontend Development Student</p>
+                                <p class="developer-desc">This app was created as a learning project to demonstrate modern web development skills including responsive design, CSS animations, and interactive JavaScript features.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="about-footer">
+                        <p>© 2024 Weather App</p>
+                        <p>Made with ❤️ using HTML, CSS & JavaScript</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAlert()">&times;</span>
+            <p id="alertMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        // Theme Management
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            // Sync toggles
+            if (themeToggle && darkModeToggle) {
+                themeToggle.checked = darkModeToggle.checked = body.classList.contains('dark-theme');
+            }
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.getElementById('themeToggle');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                if (themeToggle) themeToggle.checked = true;
+                if (darkModeToggle) darkModeToggle.checked = true;
+            }
+        }
+
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update menu active state
+            const menuItems = document.querySelectorAll('.menu-items a');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.onclick && item.onclick.toString().includes(pageId)) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Close mobile menu
+            closeMobileMenu();
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.remove('active');
+        }
+
+        // Time of Day Greeting
+        function updateTimeOfDay() {
+            const now = new Date();
+            const hour = now.getHours();
+            const timeElement = document.getElementById('timeOfDay');
+            
+            if (hour < 12) {
+                timeElement.textContent = 'Morning';
+            } else if (hour < 17) {
+                timeElement.textContent = 'Afternoon';
+            } else {
+                timeElement.textContent = 'Evening';
+            }
+        }
+
+        // Alert System
+        function showAlert(message) {
+            document.getElementById('alertMessage').textContent = message;
+            document.getElementById('alertModal').style.display = 'block';
+        }
+
+        function closeAlert() {
+            document.getElementById('alertModal').style.display = 'none';
+        }
+
+        function showComingSoon() {
+            showAlert('Weather Map coming soon!');
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+            updateTimeOfDay();
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const menu = document.getElementById('mobileMenu');
+                const toggle = document.querySelector('.nav-toggle');
+                
+                if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('alertModal');
+                if (event.target == modal) {
+                    closeAlert();
+                }
+            }
+        });
+
+        // Add pull-to-refresh effect (simulate)
+        let startY;
+        let pullDistance = 0;
+        const threshold = 80;
+
+        document.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (window.scrollY === 0) {
+                pullDistance = e.touches[0].clientY - startY;
+                if (pullDistance > 0) {
+                    e.preventDefault();
+                    const refreshIndicator = document.querySelector('.refresh-indicator');
+                    if (refreshIndicator) {
+                        refreshIndicator.style.transform = `translateY(${Math.min(pullDistance / 2, threshold)}px)`;
+                    }
+                }
+            }
+        });
+
+        document.addEventListener('touchend', function(e) {
+            if (pullDistance > threshold) {
+                showAlert('Weather data refreshed!');
+            }
+            pullDistance = 0;
+            const refreshIndicator = document.querySelector('.refresh-indicator');
+            if (refreshIndicator) {
+                refreshIndicator.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
+
+    <style>
+        /* Import the main stylesheet */
+        @import url('styles.css');
+    </style>
+</body>
+</html>
