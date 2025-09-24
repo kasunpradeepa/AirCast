@@ -171,11 +171,14 @@ body {
 .profile-pic {
     width: 80px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.2);
+    /* background: rgba(255, 255, 255, 0.2); */
+    background-image: url('./image/dp.png');
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-size: 1.5rem;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -614,9 +617,10 @@ input:not(:checked) + .slider .moon-icon {
     background: var(--bg-primary);
     border-radius: var(--border-radius);
     padding: 1.5rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 2fr 1fr;
+    display: flex;
+    /* grid-template-columns: 2fr 1fr 2fr 1fr; */
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
     box-shadow: var(--shadow-light);
     transition: var(--transition);
@@ -625,6 +629,15 @@ input:not(:checked) + .slider .moon-icon {
 .forecast-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
+}
+
+.forecast-day{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    /* background-color: #1a73e8; */
+    width: 40%;
 }
 
 .forecast-day h3 {
@@ -639,20 +652,30 @@ input:not(:checked) + .slider .moon-icon {
     font-size: 0.9rem;
 }
 
+.forecast-icon-container{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    width: 40%;
+}
+
 .forecast-icon {
     font-size: 2rem;
     text-align: center;
 }
 
 .forecast-temp {
+    /* background-color: #34a853; */
     text-align: center;
+    width: 20%;
 }
 
 .forecast-temp .high {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-right: 0.5rem;
+    /* margin-right: 0.5rem; */
 }
 
 .forecast-temp .low {
@@ -1093,9 +1116,9 @@ input:not(:checked) + .slider .moon-icon {
     }
     
     .forecast-card {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr;
         text-align: center;
-        gap: 1rem;
+        gap: 1rem; */
     }
     
     .forecast-desc {
@@ -1162,11 +1185,6 @@ input:not(:checked) + .slider .moon-icon {
         gap: 1rem;
     }
     
-    .highlight-cards {
-        /* grid-template-columns: 1fr; */
-
-    }
-    
     .summary-stats {
         grid-template-columns: 1fr;
     }
@@ -1174,6 +1192,21 @@ input:not(:checked) + .slider .moon-icon {
     .modal-content {
         margin: 20% auto;
         padding: 1.5rem;
+    }
+
+    .stat-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .stat-item div{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 

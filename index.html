@@ -29,11 +29,12 @@
         <div class="mobile-menu" id="mobileMenu">
             <div class="user-profile">
                 <div class="profile-pic">
-                    <i class="fas fa-user"></i>
+                    <!-- <i class="fas fa-user"></i> -->
+                     <!-- <img src="./image/dp.png" alt=""> -->
                 </div>
                 <div class="user-info">
-                    <h3>John Doe</h3>
-                    <p>john.doe@weather.com</p>
+                    <h3>Kasun Pradeepa</h3>
+                    <p>kasunpradeepa12345@gmai.com</p>
                 </div>
             </div>
             <ul class="menu-items">
@@ -185,12 +186,14 @@
                             <h3>Today</h3>
                             <p>Dec 20</p>
                         </div>
-                        <div class="forecast-icon">☀️</div>
                         <div class="forecast-temp">
                             <span class="high">24°</span>
-                            <span class="low">18°</span>
+                            <!-- <span class="low">18°</span> -->
                         </div>
-                        <div class="forecast-desc">Sunny</div>
+                        <div class="forecast-icon-container">
+                            <div class="forecast-icon">☀️</div>
+                            <div class="forecast-desc">Sunny</div>
+                        </div>
                     </div>
 
                     <div class="forecast-card">
@@ -198,12 +201,14 @@
                             <h3>Tomorrow</h3>
                             <p>Dec 21</p>
                         </div>
-                        <div class="forecast-icon">⛅</div>
                         <div class="forecast-temp">
                             <span class="high">20°</span>
-                            <span class="low">15°</span>
+                            <!-- <span class="low">15°</span> -->
                         </div>
-                        <div class="forecast-desc">Partly Cloudy</div>
+                        <div class="forecast-icon-container">
+                            <div class="forecast-icon">⛅</div>
+                            <div class="forecast-desc">Partly Cloudy</div>
+                        </div>
                     </div>
 
                     <div class="forecast-card">
@@ -211,12 +216,14 @@
                             <h3>Friday</h3>
                             <p>Dec 22</p>
                         </div>
-                        <div class="forecast-icon">🌧️</div>
                         <div class="forecast-temp">
                             <span class="high">16°</span>
-                            <span class="low">12°</span>
+                            <!-- <span class="low">12°</span> -->
                         </div>
-                        <div class="forecast-desc">Light Rain</div>
+                        <div class="forecast-icon-container">
+                            <div class="forecast-icon">🌧️</div>
+                            <div class="forecast-desc">Light Rain</div>
+                        </div>
                     </div>
 
                     <div class="forecast-card">
@@ -224,12 +231,14 @@
                             <h3>Saturday</h3>
                             <p>Dec 23</p>
                         </div>
-                        <div class="forecast-icon">⛅</div>
                         <div class="forecast-temp">
                             <span class="high">21°</span>
-                            <span class="low">16°</span>
+                            <!-- <span class="low">16°</span> -->
                         </div>
-                        <div class="forecast-desc">Cloudy</div>
+                        <div class="forecast-icon-container">
+                            <div class="forecast-icon">⛅</div>
+                            <div class="forecast-desc">Cloudy</div>
+                        </div>
                     </div>
 
                     <div class="forecast-card">
@@ -237,12 +246,14 @@
                             <h3>Sunday</h3>
                             <p>Dec 24</p>
                         </div>
-                        <div class="forecast-icon">🌞</div>
                         <div class="forecast-temp">
                             <span class="high">26°</span>
-                            <span class="low">20°</span>
+                            <!-- <span class="low">20°</span> -->
                         </div>
-                        <div class="forecast-desc">Hot & Sunny</div>
+                        <div class="forecast-icon-container">
+                            <div class="forecast-icon">🌞</div>
+                            <div class="forecast-desc">Hot & Sunny</div>
+                        </div>
                     </div>
                 </div>
 
@@ -466,8 +477,8 @@
 
                     <!-- Footer -->
                     <div class="about-footer">
-                        <p>© 2024 Weather App</p>
-                        <p>Made with ❤️ using HTML, CSS & JavaScript</p>
+                        <p>AirCast</p>
+                        <p>Kasun Pradeepa</p>
                     </div>
                 </div>
             </div>
@@ -569,7 +580,7 @@
         // Alert System
         function showAlert(message) {
             document.getElementById('alertMessage').textContent = message;
-            document.getElementById('alertModal').style.display = 'block';
+            document.getElementById('alertModal').style.display = 'none';
         }
 
         function closeAlert() {
