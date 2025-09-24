@@ -510,7 +510,7 @@ input:not(:checked) + .slider .moon-icon {
 
 .quick-actions h2,
 .highlights h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-primary);
@@ -591,7 +591,7 @@ input:not(:checked) + .slider .moon-icon {
 }
 
 .highlight-value {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
@@ -1072,7 +1072,7 @@ input:not(:checked) + .slider .moon-icon {
     }
     
     .weather-card {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
     
     .temp-value {
@@ -1137,6 +1137,12 @@ input:not(:checked) + .slider .moon-icon {
         gap: 20px;
     }
 
+    .page-header{
+        align-items: start;
+        flex-direction: column;
+        gap: 0px;
+    }
+
     .mobile-menu {
         width: 280px;
     }
@@ -1157,7 +1163,8 @@ input:not(:checked) + .slider .moon-icon {
     }
     
     .highlight-cards {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; */
+
     }
     
     .summary-stats {
