@@ -169,8 +169,8 @@ body {
 }
 
 .profile-pic {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     display: flex;
@@ -1128,6 +1128,15 @@ input:not(:checked) + .slider .moon-icon {
 }
 
 @media (max-width: 480px) {
+    .user-profile{
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .mobile-menu {
         width: 280px;
     }
