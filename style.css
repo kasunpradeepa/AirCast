@@ -1012,6 +1012,20 @@ input:not(:checked) + .slider .moon-icon {
     margin-bottom: 0.5rem;
 }
 
+.test-image-container {
+    width: 100%;
+    height: 300px !important;
+    background-image: url('./image/dp.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px;
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -1114,12 +1128,7 @@ input:not(:checked) + .slider .moon-icon {
     .highlight-cards {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .forecast-card {
-        /* grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1rem; */
-    }
+
     
     .forecast-desc {
         text-align: center;
